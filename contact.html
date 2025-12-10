@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Started | Lotus Green Future</title>
+  <!-- ✅ FIXED: Removed trailing spaces -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Refined Base ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --surface: #ffffff;
+      --page-bg: #f8f9f8;
+      --content-bg: #ffffff;
+      --text: #2d2d2d;
+      --text-light: #666666;
+      --primary: #78b9a4;
+      --primary-dark: #5a9c8a;
+      --primary-faded: #e8f4f0;
+      --accent-clay: #e9e2d5;
+      --border: #f0f0f0;
+      --shadow: 0 4px 20px rgba(0,0,0,0.04);
+      --radius: 16px;
+      --transition: all 0.24s ease;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--page-bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      z-index: 0;
+      opacity: 0.06;
+    }
+
+    body::before {
+      background: var(--primary);
+      top: 10%;
+      left: 5%;
+    }
+
+    body::after {
+      background: var(--accent-clay);
+      bottom: 10%;
+      right: 5%;
+    }
+
+    /* ===== 🔥 UNIFIED HEADER WITH LOGO ===== */
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(120, 185, 164, 0.12);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: white;
+      padding: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      object-fit: contain;
+    }
+
+    .logo h1 {
+      font-weight: 700;
+      font-size: 1.65rem;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    header nav a {
+      margin-left: 1.8rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 1.02rem;
+      position: relative;
+      padding-bottom: 0.35rem;
+      transition: var(--transition);
+    }
+
+    header nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: var(--primary-dark);
+    }
+
+    header nav a:hover::after {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2.5rem auto 3rem;
+      padding: 0 1.8rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-section {
+      background: var(--primary-faded);
+      padding: 2.2rem;
+      border-radius: var(--radius);
+      margin-bottom: 2.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: var(--primary);
+      border-radius: 50%;
+      top: -40px;
+      right: -40px;
+      opacity: 0.08;
+    }
+
+    .hero-text {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-top: 1.6rem;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .contact-info div {
+      margin: 0.6rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .form-section {
+      background: var(--content-bg);
+      padding: 2.4rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: relative;
+      border: 1px solid var(--border);
+    }
+
+    .form-section::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: var(--accent-clay);
+      border-radius: 50%;
+      bottom: -30px;
+      left: -30px;
+      opacity: 0.07;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.55rem;
+      font-weight: 500;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: var(--text);
+      transition: var(--transition);
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(120, 185, 164, 0.18);
+    }
+
+    .plans-header {
+      text-align: center;
+      margin: 2.2rem 0 1.8rem;
+      font-weight: 600;
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .plan-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .plan-card {
+      background: var(--content-bg);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.9rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .plan-card.selected {
+      border-color: var(--primary);
+      background: #f9fcfa;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+      border-color: var(--primary);
+    }
+
+    .plan-card h3 {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--text);
+    }
+
+    .plan-card .price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .plan-card ul {
+      list-style: none;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .plan-card ul li {
+      margin: 0.55rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .plan-card.popular {
+      position: relative;
+    }
+
+    .plan-card.popular::after {
+      content: "Most Popular";
+      position: absolute;
+      top: 12px;
+      right: -12px;
+      background: var(--primary);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 30px;
+      transform: rotate(12deg);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1.05rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .submit-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(120, 185, 164, 0.35);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .logo h1 {
+        font-size: 1.5rem;
+      }
+
+      header nav {
+        display: flex;
+        gap: 1.4rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      header nav a {
+        margin-left: 0;
+        font-size: 0.95rem;
+      }
+
+      .container {
+        margin: 1.5rem auto 2.5rem;
+        padding: 0 1.4rem;
+      }
+
+      .hero-section {
+        padding: 1.8rem;
+      }
+
+      .form-section {
+        padding: 1.8rem;
+      }
+
+      .hero-text h1 {
+        font-size: 1.8rem;
+      }
+
+      .plan-card.popular::after {
+        top: 10px;
+        right: -10px;
+        font-size: 0.65rem;
+        padding: 0.2rem 0.55rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ UNIFIED HEADER WITH LOGO -->
+  <header>
+    <a href="index.html" class="logo">
+      <img src="assets/images/Medicalwp-Medical-Health-Sign-blue.256.PNG" alt="Lotus Green Future Logo" class="logo-img">
+      <h1>Lotus Green Future</h1>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="hero-section">
+      <div class="hero-text">
+        <h1>Get Started with Lotus Green Future</h1>
+        <p>Thank you for your interest! Please contact us to set up your plan.</p>
+      </div>
+      <div class="contact-info">
+        <div><i class="fa-solid fa-phone"></i> Call Us: <strong>09153605474</strong></div>
+        <div><i class="fa-brands fa-instagram"></i> Instagram: <strong>Lotus_Green_Future</strong></div>
+      </div>
+    </section>
+
+    <div class="form-section">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="plans-header">Waste Management Plans</div>
+      <div class="plan-cards">
+        <div class="plan-card" data-plan="essential">
+          <h3>Essential Plan</h3>
+          <div class="price">₦12,500/mo</div>
+          <ul>
+            <li><i class="fa-solid fa-calendar-week"></i> Weekly pickup</li>
+            <li><i class="fa-solid fa-trash"></i> 2 standard bins (60L each)</li>
+            <li><i class="fa-solid fa-book"></i> Digital sorting guide</li>
+            <li><i class="fa-solid fa-clock"></i> Flexible scheduling</li>
+          </ul>
+        </div>
+
+        <div class="plan-card popular" data-plan="green-champion">
+          <h3>Green Champion</h3>
+          <div class="price">₦28,000/mo</div>
+          <ul>
+            <li><i class="fa-solid fa-calendar-days"></i> Twice-weekly pickup</li>
+            <li><i class="fa-solid fa-microchip"></i> 3 smart bins with sensors</li>
+            <li><i class="fa-solid fa-file-lines"></i> Monthly impact report</li>
+            <li><i class="fa-solid fa-headset"></i> Priority 24/7 support</li>
+            <li><i class="fa-solid fa-rotate"></i> Free bin replacements</li>
+            <li><i class="fa-solid fa-badge"></i> Eco badges for your profile</li>
+          </ul>
+        </div>
+
+        <div class="plan-card" data-plan="zero-waste-elite">
+          <h3>Zero Waste Elite</h3>
+          <div class="price">₦45,000/mo</div>
+          <ul>
+            <li><i class="fa-solid fa-business-time"></i> Daily pickup (Mon–Sat)</li>
+            <li><i class="fa-solid fa-crown"></i> 5 premium smart bins</li>
+            <li><i class="fa-solid fa-user-tie"></i> Dedicated eco-consultant</li>
+            <li><i class="fa-solid fa-certificate"></i> Official Zero Waste Certification</li>
+            <li><i class="fa-solid fa-magnifying-glass-chart"></i> Quarterly sustainability audit</li>
+            <li><i class="fa-solid fa-tree"></i> Tree planted in your name monthly</li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="submit-btn" id="submit-btn">Send Request</button>
+    </div>
+  </div>
+
+<!-- Back to Top Button -->
+<button id="backToTop" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- Full-Width Insane Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Brand + Logo -->
+    <div class="footer-brand">
+      <img 
+        src="assets/images/Medicalwp-Medical-Health-Sign-blue.256.PNG" 
+        alt="Lotus Green Future Logo" 
+        class="logo-unified"
+      />
+      <p>Keeping the world clean, one step at a time.</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="footer-nav">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#bins">Bins</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Social -->
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://x.com/" target="_blank" rel="noopener" aria-label="Twitter / X">🐦</a>
+        <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="footer-bottom">&copy; 2025 Lotus Green Future | Sustainable Waste Solutions for a Healthier Nigeria</p>
+
+  <style>
+    /* Back to Top */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 4px 16px rgba(120, 185, 164, 0.4);
+      z-index: 990;
+    }
+    #backToTop.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    #backToTop:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(120, 185, 164, 0.6);
+    }
+
+    /* Full-Width Footer */
+    .footer {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #cbd5e1;
+      padding: 3rem 0 2rem;
+      margin-top: 4rem;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      left: 0;
+    }
+
+    .footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(120, 185, 164, 0.06) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(30, 111, 186, 0.08) 0%, transparent 25%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-brand { flex: 1; min-width: 220px; }
+    .logo-unified {
+      height: 52px;
+      width: auto;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+      transition: transform 0.3s ease;
+    }
+    .footer-brand:hover .logo-unified { transform: scale(1.05); }
+    .footer-brand p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+
+    .footer-nav, .footer-social { flex: 1; min-width: 180px; }
+    .footer-nav h4, .footer-social h4 {
+      font-size: 1.15rem;
+      margin-bottom: 1rem;
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+    .footer-nav h4::after, .footer-social h4::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--primary);
+      margin-top: 6px;
+      border-radius: 2px;
+      opacity: 0.8;
+    }
+
+    .footer-nav ul { list-style: none; padding: 0; margin: 0; }
+    .footer-nav li { margin-bottom: 0.65rem; }
+    .footer-nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      position: relative;
+    }
+    .footer-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+    .footer-nav a:hover {
+      color: #f1f5f9;
+    }
+    .footer-nav a:hover::after { width: 100%; }
+
+    .social-icons a {
+      margin-right: 1.1rem;
+      font-size: 1.5rem;
+      color: #94a3b8;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: inline-block;
+    }
+    .social-icons a:hover {
+      color: var(--primary);
+      transform: translateY(-3px) scale(1.1);
+      text-shadow: 0 0 12px rgba(120, 185, 164, 0.4);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2.5rem;
+      color: #64748b;
+      font-size: 0.9rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.15);
+      max-width: 1200px;
+      margin: 2.5rem auto 0;
+      padding: 0 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        padding: 0 1.5rem;
+      }
+      #backToTop {
+        bottom: 16px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
+      }
+      .social-icons a {
+        margin: 0 0.9rem;
+      }
+    }
+  </style>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('backToTop');
+    const toggle = () => btn.classList.toggle('visible', window.scrollY > 600);
+    const top = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.addEventListener('scroll', toggle);
+    btn?.addEventListener('click', top);
+  });
+</script>
+  
+  <script>
+    const planCards = document.querySelectorAll('.plan-card');
+    let selectedPlan = 'essential';
+
+    planCards.forEach(card => {
+      card.addEventListener('click', () => {
+        planCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedPlan = card.dataset.plan;
+      });
+    });
+
+    document.querySelector('.plan-card[data-plan="essential"]').classList.add('selected');
+
+    document.getElementById('submit-btn').addEventListener('click', function() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+
+      if (!name || !email) {
+        alert('Please fill in your name and email.');
+        return;
+      }
+
+      const planNames = {
+        'essential': 'Essential Plan',
+        'green-champion': 'Green Champion',
+        'zero-waste-elite': 'Zero Waste Elite'
+      };
+
+      alert(`✅ Request sent!\n\nName: ${name}\nEmail: ${email}\nPlan: ${planNames[selectedPlan]}\n\nWe'll contact you soon!`);
+      
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.querySelector('.plan-card[data-plan="essential"]').classList.add('selected');
+      selectedPlan = 'essential';
+    });
+  </script>
+</body>
+</html>

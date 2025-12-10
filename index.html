@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lotus Green Future | Sustainable Waste Solutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== COSMIC RESET ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --page-bg: #f9faf9;
+      --surface: #ffffff;
+      --primary: #78b9a4;
+      --primary-dark: #5a9c8a;
+      --primary-light: #e8f4f0;
+      --text: #2a2a2a;
+      --text-light: #6b6b6b;
+      --border: #f0f2f1;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --shadow-sm: 0 2px 10px rgba(0,0,0,0.03);
+      --shadow-md: 0 6px 24px rgba(0,0,0,0.05);
+      --shadow-lg: 0 12px 36px rgba(0,0,0,0.06);
+      --transition-fast: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --transition-slow: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--page-bg);
+      color: var(--text);
+      line-height: 1.65;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ===== AMBIENT ACCENTS ===== */
+    body::before,
+    body::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      background: var(--primary);
+      top: 12%;
+      left: 6%;
+    }
+    body::after {
+      background: #e9e2d5;
+      bottom: 14%;
+      right: 7%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+    }
+
+    /* ===== 🔥 UNIFIED HEADER WITH LOGO ===== */
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: white;
+      padding: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      object-fit: contain;
+    }
+
+    .logo h1 {
+      font-weight: 600;
+      font-size: 1.6rem;
+      color: var(--primary);
+      letter-spacing: -0.2px;
+    }
+
+    header nav a {
+      margin-left: 1.8rem;
+      font-weight: 500;
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: var(--transition-fast);
+    }
+
+    header nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: var(--primary);
+    }
+
+    header nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== REST OF YOUR STYLING (unchanged) ===== */
+    .hero {
+      height: 72vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1.8rem;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: white;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
+      z-index: 1;
+    }
+    .hero > * {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      padding: 0 1rem;
+    }
+    .hero h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1.1rem;
+      letter-spacing: -0.8px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      opacity: 0.95;
+      line-height: 1.6;
+      margin-bottom: 2.2rem;
+    }
+    .hero-buttons .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: transparent;
+      color: white;
+      border: 1.8px solid rgba(255,255,255,0.92);
+      border-radius: 50px;
+      font-weight: 600;
+      margin: 0 0.6rem;
+      transition: var(--transition-fast);
+      font-size: 1rem;
+      letter-spacing: 0.2px;
+    }
+    .hero-buttons .btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+    }
+
+    section {
+      padding: 5.5rem 2.2rem;
+      background: var(--surface);
+      margin: 3.5rem auto;
+      max-width: 1020px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+      position: relative;
+      border: 1px solid var(--border);
+      transition: var(--transition-slow);
+    }
+    section:hover {
+      box-shadow: var(--shadow-lg);
+    }
+    section h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 2.6rem;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      position: relative;
+    }
+    section h2::after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+      margin: 0.8rem auto 0;
+      border-radius: 2px;
+      opacity: 0.7;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .service-cards, .bin-cards, .plan-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.2rem;
+      margin-top: 2.4rem;
+    }
+    .card, .bin-card, .plan-card {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      padding: 2.2rem 1.6rem;
+      text-align: center;
+      transition: var(--transition-slow);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover, .bin-card:hover, .plan-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(120, 185, 164, 0.4);
+    }
+    .card-icon, .bin-icon, .plan-icon {
+      font-size: 2.3rem;
+      margin-bottom: 1.3rem;
+      transition: var(--transition-fast);
+    }
+    .card:hover .card-icon,
+    .bin-card:hover .card-icon,
+    .plan-card:hover .plan-icon {
+      transform: scale(1.15);
+    }
+    .card h3, .bin-card h3, .plan-card h3 {
+      font-weight: 600;
+      margin: 0.7rem 0;
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+    .card p, .bin-card p, .plan-card p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    .bin-card.blue { border-top: 4px solid #3b82f6; }
+    .bin-card.blue .bin-icon { color: #3b82f6 !important; }
+    .bin-card.black { border-top: 4px solid #1f2937; }
+    .bin-card.black .bin-icon { color: #1f2937 !important; }
+    .bin-card.green { border-top: 4px solid var(--primary); }
+    .bin-card.green .bin-icon { color: var(--primary) !important; }
+
+    .bin-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.8rem;
+      justify-items: center;
+    }
+    .bin-gallery img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 14px;
+      box-shadow: var(--shadow-md);
+      background: var(--surface);
+      padding: 8px;
+      aspect-ratio: 3 / 4;
+    }
+
+    .plan-card {
+      min-height: 450px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .plan-card.popular {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      position: relative;
+    }
+    .plan-card.popular::before {
+      content: "Most Popular";
+      position: absolute;
+      top: 15px;
+      right: -12px;
+      background: var(--primary);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      border-radius: 30px;
+      transform: rotate(10deg);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+    .plan-card .price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0.6rem 0 1.4rem;
+    }
+    .plan-card ul {
+      list-style: none;
+      margin: 1.4rem 0;
+      flex-grow: 1;
+    }
+    .plan-card ul li {
+      margin: 0.9rem 0;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .plan-card .btn {
+      background: var(--primary);
+      color: white;
+      width: 100%;
+      padding: 0.95rem;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      margin-top: 0.6rem;
+      letter-spacing: 0.3px;
+    }
+    .plan-card .btn:hover {
+      background: var(--primary-dark);
+    }
+
+
+    @media (max-width: 900px) {
+      .hero h2 { font-size: 2.4rem; }
+      .hero p { font-size: 1.1rem; }
+    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.2rem;
+        text-align: center;
+      }
+      .logo h1 { font-size: 1.4rem; }
+      header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem;
+      }
+      header nav a { margin: 0; }
+      .hero {
+        height: 65vh;
+        padding: 0 1.2rem;
+      }
+      .hero h2 { font-size: 2.1rem; }
+      .hero p { font-size: 1rem; }
+      .hero-buttons .btn {
+        display: block;
+        margin: 0.7rem auto;
+        width: 88%;
+      }
+      section {
+        padding: 3.5rem 1.6rem;
+        margin: 2.5rem auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ UNIFIED HEADER WITH LOGO -->
+  <header>
+    <a href="index.html" class="logo">
+      <img src="assets/images/Medicalwp-Medical-Health-Sign-blue.256.PNG" alt="Lotus Green Future Logo" class="logo-img">
+      <h1>Lotus Green Future</h1>
+    </a>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#services">Services</a>
+      <a href="#bins">Bins</a>
+      <a href="#plans">Plans</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero" id="hero" style="background-image:url('assets/images/IMG-20251209-WA0024.jpg')">
+    <h2>Transform Waste into Wellness</h2>
+    <p>We handle the messy part of sustainability so you can live lighter, cleaner, and with greater peace of mind. Join thousands of eco-conscious homes and businesses already thriving with our tailored waste solutions.</p>
+    <div class="hero-buttons">
+      <a href="#plans" class="btn">Explore Plans</a>
+      <a href="#services" class="btn">How It Works</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Services Section -->
+    <section id="services">
+      <h2>Our Sustainable Solutions</h2>
+      <div class="service-cards">
+        <div class="card">
+          <div class="card-icon" style="color: var(--primary)"><i class="fa-solid fa-truck"></i></div>
+          <h3>Reliable Waste Collection</h3>
+          <p>On-time pickup of your sorted waste, every week, with real-time tracking and eco-friendly vehicles.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="color: var(--primary)"><i class="fa-solid fa-recycle"></i></div>
+          <h3>Advanced Sorting Hubs</h3>
+          <p>Our AI-assisted facilities ensure over 90% of your waste is diverted from landfills and given new life.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="color: var(--primary)"><i class="fa-solid fa-box"></i></div>
+          <h3>Smart Bin Ecosystem</h3>
+          <p>Ergonomic, color-coded bins with fill-level sensors to optimize your waste journey from home to recycling.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="color: var(--primary)"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <h3>Community Impact Programs</h3>
+          <p>From school workshops to neighborhood cleanups, we empower communities to lead the green revolution.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="color: var(--primary)"><i class="fa-solid fa-sitemap"></i></div>
+          <h3>Zero-Waste Roadmap</h3>
+          <p>Personalized strategies to help your home or business reduce waste output by up to 70% in under a year.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Break Section -->
+    <div class="hero" style="background-image:url('assets/images/IMG-20251209-WA0025.jpg'); height:52vh;">
+      <h2>Simple Sorting, Powerful Impact</h2>
+      <p>Our intuitive three-bin system makes recycling effortless—so you spend less time managing waste and more time living sustainably.</p>
+    </div>
+
+    <!-- Bins Section -->
+    <section id="bins">
+      <h2>Your Waste, Sorted with Purpose</h2>
+      <div class="bin-cards">
+        <div class="bin-card blue">
+          <div class="bin-icon" style="color: #3b82f6"><i class="fa-solid fa-box-archive"></i></div>
+          <h3>Blue Bin: Recyclables</h3>
+          <p>Paper, cardboard, plastic bottles, glass jars, aluminum cans, and clean metal packaging.</p>
+        </div>
+        <div class="bin-card black">
+          <div class="bin-icon" style="color: #1f2937"><i class="fa-solid fa-trash"></i></div>
+          <h3>Black Bin: General Waste</h3>
+          <p>Non-recyclable plastics, chip bags, used tissues, diapers, and other non-compostable items.</p>
+        </div>
+        <div class="bin-card green">
+          <div class="bin-icon" style="color: var(--primary)"><i class="fa-solid fa-leaf"></i></div>
+          <h3>Green Bin: Organic Waste</h3>
+          <p>Food scraps, fruit peels, coffee grounds, garden trimmings, and certified compostable packaging.</p>
+        </div>
+      </div>
+
+      <!-- Bin Image Gallery -->
+      <div class="bin-gallery">
+        <img src="assets/images/WhatsApp Image 2025-12-09 at 21.23.04_2801a1ce.jpg" alt="Blue Recycling Bin">
+        <img src="assets/images/WhatsApp Image 2025-12-09 at 21.23.03_1928b303.jpg" alt="Black General Waste Bin">
+        <img src="assets/images/WhatsApp Image 2025-12-09 at 21.23.06_bcfdfcf2.jpg" alt="Green Compost Bin">
+      </div>
+    </section>
+
+    <!-- Hero Break Section -->
+    <div class="hero" style="background-image:url('assets/images/IMG-20251209-WA0022.jpg'); height:52vh;">
+      <h2>Choose Your Sustainability Path</h2>
+      <p>Flexible plans designed for every lifestyle—whether you're a conscious individual or a growing business.</p>
+    </div>
+
+    <!-- Plans Section -->
+    <section id="plans">
+      <h2>Waste Management Plans</h2>
+      <div class="plan-cards">
+        <div class="plan-card">
+          <div class="plan-icon" style="color: var(--primary)"><i class="fa-solid fa-leaf"></i></div>
+          <h3>Essential Plan</h3>
+          <p class="price">₦12,500/mo</p>
+          <ul>
+            <li><i class="fa-solid fa-truck"></i> Weekly pickup</li>
+            <li><i class="fa-solid fa-box"></i> 2 standard bins (60L each)</li>
+            <li><i class="fa-solid fa-book"></i> Digital sorting guide</li>
+            <li><i class="fa-solid fa-calendar"></i> Flexible scheduling</li>
+          </ul>
+          <a href="contact.html" class="btn">Get Started</a>
+        </div>
+
+        <div class="plan-card popular">
+          <div class="plan-icon" style="color: var(--primary)"><i class="fa-solid fa-earth-africa"></i></div>
+          <h3>Green Champion</h3>
+          <p class="price">₦28,000/mo</p>
+          <ul>
+            <li><i class="fa-solid fa-truck-fast"></i> Twice-weekly pickup</li>
+            <li><i class="fa-solid fa-cube"></i> 3 smart bins with sensors</li>
+            <li><i class="fa-solid fa-chart-line"></i> Monthly impact report</li>
+            <li><i class="fa-solid fa-headset"></i> Priority 24/7 support</li>
+            <li><i class="fa-solid fa-rotate"></i> Free bin replacements</li>
+            <li><i class="fa-solid fa-award"></i> Eco badges for your profile</li>
+          </ul>
+          <a href="contact.html" class="btn">Get Started</a>
+        </div>
+
+        <div class="plan-card">
+          <div class="plan-icon" style="color: var(--primary)"><i class="fa-solid fa-gem"></i></div>
+          <h3>Zero Waste Elite</h3>
+          <p class="price">₦45,000/mo</p>
+          <ul>
+            <li><i class="fa-solid fa-truck"></i> Daily pickup (Mon–Sat)</li>
+            <li><i class="fa-solid fa-box-open"></i> 5 premium smart bins</li>
+            <li><i class="fa-solid fa-user-tie"></i> Dedicated eco-consultant</li>
+            <li><i class="fa-solid fa-certificate"></i> Official Zero Waste Certification</li>
+            <li><i class="fa-solid fa-chart-pie"></i> Quarterly sustainability audit</li>
+            <li><i class="fa-solid fa-hand-holding-seedling"></i> Tree planted in your name monthly</li>
+          </ul>
+          <a href="contact.html" class="btn">Get Started</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Full-Width Insane Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Brand + Logo -->
+    <div class="footer-brand">
+      <img 
+        src="assets/images/Medicalwp-Medical-Health-Sign-blue.256.PNG" 
+        alt="Lotus Green Future Logo" 
+        class="logo-unified"
+      />
+      <p>Keeping the world clean, one step at a time.</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="footer-nav">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#bins">Bins</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Social -->
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://x.com/" target="_blank" rel="noopener" aria-label="Twitter / X">🐦</a>
+        <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="footer-bottom">&copy; 2025 Lotus Green Future | Sustainable Waste Solutions for a Healthier Nigeria</p>
+
+  <style>
+    /* Back to Top */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 4px 16px rgba(120, 185, 164, 0.4);
+      z-index: 990;
+    }
+    #backToTop.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    #backToTop:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(120, 185, 164, 0.6);
+    }
+
+    /* Full-Width Footer */
+    .footer {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #cbd5e1;
+      padding: 3rem 0 2rem;
+      margin-top: 4rem;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      left: 0;
+    }
+
+    .footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(120, 185, 164, 0.06) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(30, 111, 186, 0.08) 0%, transparent 25%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-brand { flex: 1; min-width: 220px; }
+    .logo-unified {
+      height: 52px;
+      width: auto;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+      transition: transform 0.3s ease;
+    }
+    .footer-brand:hover .logo-unified { transform: scale(1.05); }
+    .footer-brand p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+
+    .footer-nav, .footer-social { flex: 1; min-width: 180px; }
+    .footer-nav h4, .footer-social h4 {
+      font-size: 1.15rem;
+      margin-bottom: 1rem;
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+    .footer-nav h4::after, .footer-social h4::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--primary);
+      margin-top: 6px;
+      border-radius: 2px;
+      opacity: 0.8;
+    }
+
+    .footer-nav ul { list-style: none; padding: 0; margin: 0; }
+    .footer-nav li { margin-bottom: 0.65rem; }
+    .footer-nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      position: relative;
+    }
+    .footer-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+    .footer-nav a:hover {
+      color: #f1f5f9;
+    }
+    .footer-nav a:hover::after { width: 100%; }
+
+    .social-icons a {
+      margin-right: 1.1rem;
+      font-size: 1.5rem;
+      color: #94a3b8;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: inline-block;
+    }
+    .social-icons a:hover {
+      color: var(--primary);
+      transform: translateY(-3px) scale(1.1);
+      text-shadow: 0 0 12px rgba(120, 185, 164, 0.4);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2.5rem;
+      color: #64748b;
+      font-size: 0.9rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.15);
+      max-width: 1200px;
+      margin: 2.5rem auto 0;
+      padding: 0 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        padding: 0 1.5rem;
+      }
+      #backToTop {
+        bottom: 16px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
+      }
+      .social-icons a {
+        margin: 0 0.9rem;
+      }
+    }
+  </style>
+</footer>

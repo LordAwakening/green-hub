@@ -1,0 +1,21 @@
+﻿├── .gitignore
+├── about.html
+├── assets/
+│   ├── css/
+│   │   ├── reset.css
+│   │   ├── style.css
+│   ├── icons/
+│   │   ├── recycle.svg
+│   ├── images/
+│   │   ├── contact-banner.jpg
+│   │   ├── hero.jpg
+│   │   ├── logo.png
+│   ├── js/
+│   │   ├── main.js
+├── components/
+│   ├── footer.html
+│   ├── header.html
+├── contact.html
+├── folder_tree.txt
+├── index.html
+├── README.md

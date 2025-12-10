@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lotus Green Future | Waste Management</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Base Reset & Vars ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --page-bg: #f8f9f8;
+      --content-bg: #ffffff;
+      --text: #2d2d2d;
+      --text-light: #666666;
+      --primary: #78b9a4;
+      --primary-dark: #5a9c8a;
+      --primary-faded: #e8f4f0;
+      --accent-clay: #e9e2d5;
+      --border: #f0f0f0;
+      --shadow: 0 4px 20px rgba(0,0,0,0.04);
+      --radius: 16px;
+      --transition: all 0.24s ease;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--page-bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== 🔥 NEW: HEADER WITH LOGO ===== */
+    header {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(120, 185, 164, 0.15);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: white;
+      padding: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      object-fit: contain;
+    }
+
+    .logo h1 {
+      font-weight: 700;
+      font-size: 1.55rem;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    header nav a {
+      margin-left: 1.6rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 1.02rem;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    header nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: var(--primary-dark);
+    }
+
+    header nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== Hero & Rest (unchanged logic, slight cleanup) ===== */
+    .hero {
+      height: 80vh;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
+
+    .hero > * {
+      z-index: 2;
+      max-width: 700px;
+      padding: 0 1.5rem;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .hero-buttons .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      margin: 0 0.8rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(120, 185, 164, 0.3);
+    }
+
+    .hero-buttons .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(120, 185, 164, 0.45);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.8rem 4rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      color: var(--text);
+    }
+
+    .service-cards, .bin-cards, .plan-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+
+    .card, .bin-card, .plan-card {
+      background: var(--content-bg);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .card:hover, .bin-card:hover, .plan-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .card-icon, .plan-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+      color: var(--primary);
+    }
+
+    .bin-card.blue { border-top: 4px solid #4a90e2; }
+    .bin-card.black { border-top: 4px solid #333; }
+    .bin-card.green { border-top: 4px solid #78b9a4; }
+
+    .bin-card .card-icon {
+      color: inherit;
+    }
+
+    .plan-card ul {
+      list-style: none;
+      margin: 1.2rem 0;
+      text-align: left;
+    }
+
+    .plan-card ul li {
+      margin: 0.8rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .plan-card.popular {
+      position: relative;
+      border: 2px solid var(--primary);
+      background: #f9fcfa;
+    }
+
+    .plan-card.popular::after {
+      content: "Most Popular";
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      background: var(--primary);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      border-radius: 30px;
+      transform: rotate(10deg);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+
+    .plan-card button {
+      width: 100%;
+      padding: 0.8rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .plan-card button:hover {
+      background: var(--primary-dark);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      background: var(--content-bg);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .logo h1 {
+        font-size: 1.4rem;
+      }
+
+      header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      header nav a {
+        margin-left: 0;
+        font-size: 0.95rem;
+      }
+
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1.05rem;
+      }
+
+      .hero-buttons .btn {
+        display: block;
+        margin: 0.6rem auto;
+        width: 85%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with Logo -->
+  <header>
+    <a href="#hero" class="logo">
+      <img src="assets/images/Medicalwp-Medical-Health-Sign-blue.256.PNG" alt="Lotus Green Future Logo" class="logo-img">
+      <h1>Lotus Green Future</h1>
+    </a>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#services">Services</a>
+      <a href="#bins">Bins</a>
+      <a href="#plans">Plans</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero" id="hero" style="background-image: url('assets/images/IMG-20251209-WA0024.jpg')">
+    <h2>Clean Planet, Healthy Future</h2>
+    <p>Join the revolution of sustainable living. We manage your waste so you can focus on building a greener future.</p>
+    <div class="hero-buttons">
+      <a href="#plans" class="btn">Choose a Plan</a>
+      <a href="#services" class="btn">Learn More</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Services -->
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="service-cards">
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-truck"></i></div>
+          <h3>Waste Pickup</h3>
+          <p>Reliable and timely collection of your sorted waste directly from your doorstep.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-recycle"></i></div>
+          <h3>Waste Sorting</h3>
+          <p>Professional sorting facilities to ensure maximum recyclability of your waste.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-box"></i></div>
+          <h3>Bin Systems</h3>
+          <p>Smart bin solutions color-coded for easy and effective waste segregation.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <h3>Eco Education</h3>
+          <p>Workshops and guides to help you and your community live more sustainably.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Break -->
+    <div class="hero" style="height: 50vh; background-image: url('assets/images/IMG-20251209-WA0025.jpg')">
+      <h2>Segregation Made Simple</h2>
+      <p>Our bins and system make recycling easier than ever. Save the planet one bin at a time.</p>
+    </div>
+
+    <!-- Bins -->
+    <section id="bins">
+      <h2>Three Waste Bins</h2>
+      <div class="bin-cards">
+        <div class="bin-card blue">
+          <div class="card-icon"><i class="fa-solid fa-box-archive"></i></div>
+          <h3>Blue Bin</h3>
+          <p>Recyclables: Paper, Cardboard, Plastic Bottles, Glass, Aluminum Cans.</p>
+        </div>
+        <div class="bin-card black">
+          <div class="card-icon"><i class="fa-solid fa-trash"></i></div>
+          <h3>Black Bin</h3>
+          <p>General Waste: Non-recyclable plastics, wrappers, hygiene products.</p>
+        </div>
+        <div class="bin-card green">
+          <div class="card-icon"><i class="fa-solid fa-leaf"></i></div>
+          <h3>Green Bin</h3>
+          <p>Organic Waste: Food scraps, garden waste, biodegradable materials.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Break -->
+    <div class="hero" style="height: 50vh; background-image: url('assets/images/IMG-20251209-WA0022.jpg')">
+      <h2>Plans That Suit You</h2>
+      <p>Flexible and affordable plans designed to keep your home or business waste-free.</p>
+    </div>
+
+    <!-- Plans -->
+    <section id="plans">
+      <h2>Choose Your Plan</h2>
+      <div class="plan-cards">
+        <div class="plan-card">
+          <div class="plan-icon"><i class="fa-solid fa-leaf"></i></div>
+          <h3>Essential Plan</h3>
+          <div class="price">₦12,500/mo</div>
+          <ul>
+            <li><i class="fa-solid fa-calendar-week"></i> Weekly Pickup</li>
+            <li><i class="fa-solid fa-trash"></i> 2 standard bins (60L each)</li>
+            <li><i class="fa-solid fa-book"></i> Digital sorting guide</li>
+            <li><i class="fa-solid fa-clock"></i> Flexible scheduling</li>
+          </ul>
+          <button>Select Plan</button>
+        </div>
+
+        <div class="plan-card popular">
+          <div class="plan-icon"><i class="fa-solid fa-earth-africa"></i></div>
+          <h3>Green Champion</h3>
+          <div class="price">₦28,000/mo</div>
+          <ul>
+            <li><i class="fa-solid fa-calendar-days"></i> Twice-weekly pickup</li>
+            <li><i class="fa-solid fa-microchip"></i> 3 smart bins with sensors</li>
+            <li><i class="fa-solid fa-file-lines"></i> Monthly impact report</li>
+            <li><i class="fa-solid fa-headset"></i> Priority 24/7 support</li>
+            <li><i class="fa-solid fa-rotate"></i> Free bin replacements</li>
+            <li><i class="fa-solid fa-badge"></i> Eco badges for your profile</li>
+          </ul>
+          <button>Select Plan</button>
+        </div>
+
+        <div class="plan-card">
+          <div class="plan-icon"><i class="fa-solid fa-gem"></i></div>
+          <h3>Zero Waste Elite</h3>
+          <div class="price">₦45,000/mo</div>
+          <ul>
+            <li><i class="fa-solid fa-business-time"></i> Daily pickup (Mon–Sat)</li>
+            <li><i class="fa-solid fa-crown"></i> 5 premium smart bins</li>
+            <li><i class="fa-solid fa-user-tie"></i> Dedicated eco-consultant</li>
+            <li><i class="fa-solid fa-certificate"></i> Official Zero Waste Certification</li>
+            <li><i class="fa-solid fa-magnifying-glass-chart"></i> Quarterly sustainability audit</li>
+            <li><i class="fa-solid fa-tree"></i> Tree planted in your name monthly</li>
+          </ul>
+          <button>Select Plan</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Lotus Green Future | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(anchor.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
